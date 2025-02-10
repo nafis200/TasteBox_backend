@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post('/',ValidateRequest(ProjectValidationSchema),auth("admin"),ProjectController.createProject);
 
-router.get('/',auth("admin"),ProjectController.getAllProject)
+router.get('/',ProjectController.getAllProject)
 
 
 router.put('/:projectId',auth("admin"), ProjectController.UpdateSingleProject)

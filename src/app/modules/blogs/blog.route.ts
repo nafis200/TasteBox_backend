@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/', auth('admin'), BlogController.createBlogs);
 
-router.get('/', auth('admin'), BlogController.getAllBlogs);
+router.get('/', BlogController.getAllBlogs);
 
 router.put('/:projectId', auth('admin'), BlogController.UpdateSingleBlogs);
 
