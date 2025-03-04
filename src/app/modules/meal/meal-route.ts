@@ -8,9 +8,9 @@ import { MealController } from './meal-controller';
 
 const router = express.Router();
 
-router.post('/order',ValidateRequest(MealValidationSchema),MealController.createMeal)
-router.get('/order',MealController.getAllMeal)
-
+router.post('/menu',ValidateRequest(MealValidationSchema),MealController.createMeal)
+router.get('/orders',MealController.getAllMeal)
+router.put('/menu/:projectId',MealController.UpdateMeal)
 
 
 export const MealRoutes = router;

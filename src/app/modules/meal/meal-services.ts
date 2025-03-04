@@ -16,10 +16,10 @@ const getAllMeal = async (query: Record<string, unknown>) => {
     
     const courseQuery = new QueryBuilder(mealModel.find(), query)
       .search(searchableFields)
-      // .filter()
-      // .sort()
-      // .paginate()
-      // .fields();
+      .filter()
+      .sort()
+      .paginate()
+      .fields();
   
     const result = await courseQuery.modelQuery;
     const meta = await courseQuery.countTotal()
@@ -29,8 +29,44 @@ const getAllMeal = async (query: Record<string, unknown>) => {
     };
   };
 
+  const UpdateMeal = async (
+    projectId: string,
+    ProjectData: Partial<IMeal>,
+  ) => {
+  
+    const {ingredient,...remainingData} = ProjectData
+    
+    if (ProjectData.ingredient) {
+      await mealModel.findByIdAndUpdate(
+        projectId,
+        {
+          $addToSet: { technologies: { $each: ingredient } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        },
+      );
+    }
+  
+    const result = await mealModel.findByIdAndUpdate(
+      projectId,
+      {
+        $set: {
+          ...remainingData,
+        },
+      },
+      {
+        new: true,
+        runValidators: true,
+      },
+    );
+    return result
+  };
+
 
 export const MealServices = {
     createMeal,
-    getAllMeal
+    getAllMeal,
+    UpdateMeal
 }

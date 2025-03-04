@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 
 export const createToken = (
-  jwtPayload: { email: string; role: string },
+  jwtPayload: { email: string; role: string,name:string,phone_number:string,address:string },
   secret: string,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   expiresIn: string,
@@ -14,7 +14,7 @@ export const createToken = (
   
 };
 export const createRefreshToken = (
-  jwtPayload: { email: string; role: string },
+  jwtPayload: { email: string; role: string,name:string,phone_number:string,address:string },
   secret: string,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   expiresIn: string,
@@ -24,4 +24,6 @@ export const createRefreshToken = (
   }, secret, { expiresIn: '1000d' });
   
 };
+
+
 

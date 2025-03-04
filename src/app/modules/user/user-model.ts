@@ -5,6 +5,8 @@ import config from "../../config";
 const userSchema = new Schema<TUser,UserModel>(
   {
     name: { type: String, required: true },
+    phone_number: { type: String, required: true },
+    address: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role: { type: String, enum: ["admin", "user"], default: "user" },
@@ -33,6 +35,9 @@ userSchema.pre('save', async function (next) {
   
   userSchema.statics.isUserExistsByCustomId = async function (email: string) {
     return await User.findOne({ email }).select('+password');
+  };
+  userSchema.statics.isUserExistsByCustomPhone = async function (phone_number: string) {
+    return await User.findOne({ phone_number }).select('+password');
   };
   
   userSchema.statics.isPasswordMatched = async function (

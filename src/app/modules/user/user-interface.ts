@@ -7,11 +7,14 @@ export type TUser = {
   password: string;
   role: "admin" | "user";
   isBlocked: boolean;
+  phone_number:string;  
   _id?:string;
+  address:string
 };
 
 export interface UserModel extends Model<TUser> {
   isUserExistsByCustomId(id: string): Promise<TUser>;
+  isUserExistsByCustomPhone(phone_number: string): Promise<TUser>;
   isPasswordMatched(
     plainTextPassword: string,
     hashedPassword: string
@@ -19,8 +22,9 @@ export interface UserModel extends Model<TUser> {
 }
 
 export type TLoginUser = {
-  email: string;
+  email?: string;
   password: string;
+  phone_number?:string
 };
 
 export type TUserRole = keyof typeof USER_ROLE;
