@@ -17,10 +17,10 @@ const createCustomerMeal = async(payload:ICustomer)=>{
 const getAllCustomerMeal = async (query: Record<string, unknown>) => {
     
     const courseQuery = new QueryBuilder(customerModel.find(), query)
-      // .filter()
+      .filter()
       .sort()
       .paginate()
-      // .fields();
+      .fields();
   
     const result = await courseQuery.modelQuery.populate("author");
     const meta = await courseQuery.countTotal()

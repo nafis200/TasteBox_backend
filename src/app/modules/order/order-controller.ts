@@ -31,7 +31,19 @@ const verifyPayment = catchAsync(async (req, res) => {
   });
 });
 
+const getAllPaymentOrder = catchAsync(async (req, res) => {
+  const result = await OrderServices.getAllPaymentOrder(req?.query);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Get All Payment',
+    data: result,
+  });
+});
+
+
 export const OrderControllers = {
   OrderCar,
   verifyPayment,
+  getAllPaymentOrder
 };

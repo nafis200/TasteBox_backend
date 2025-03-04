@@ -9,4 +9,6 @@ router.post('/',ValidateRequest(OrderValidationSchema),OrderControllers.OrderCar
 
 router.get('/verify', OrderControllers.verifyPayment);
 
+router.get('/Surjopay',OrderControllers.getAllPaymentOrder)
+
 export const OrderRoutes = router;

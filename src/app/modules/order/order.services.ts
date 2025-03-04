@@ -1,4 +1,5 @@
 
+import QueryBuilder from '../../builder/QueryBuilder';
 import type { OrderModel } from './order-interface';
 
 import { OrderModels } from './order.model';
@@ -78,9 +79,26 @@ const verifyPayment = async (order_id: string) => {
   return verifiedPayment;
 };
 
+const getAllPaymentOrder = async (query: Record<string, unknown>) => {
+    
+  const courseQuery = new QueryBuilder(OrderModels.find(), query)
+    .filter()
+    .sort()
+    .paginate()
+    .fields();
+
+  const result = await courseQuery.modelQuery;
+  const meta = await courseQuery.countTotal()
+  return {
+    meta,
+    result
+};
+};
+
 export const OrderServices = {
   createOrderIntoDB,
   verifyPayment,
+  getAllPaymentOrder
 };
 
 // {
