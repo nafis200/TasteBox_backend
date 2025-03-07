@@ -16,7 +16,7 @@ const getAllMeal = async (query: Record<string, unknown>) => {
     
     const courseQuery = new QueryBuilder(mealModel.find(), query)
       .search(searchableFields)
-      .filter()
+      // .filter()
       .sort()
       .paginate()
       .fields();
