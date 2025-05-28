@@ -1,8 +1,8 @@
-# CarShop
+# Meal shop
 
-- [@typescript eslint-prettier setup](https://dev.to/shafayat/-express-typescript-eslint-prettiersetup-5fhg)
+- [@Live-Link](https://meal-shop-frontend.vercel.app/)
 
-- [@typescript eslint-prettier setup](https://blog.logrocket.com/linting-typescript-eslint-prettier/#setup-eslint)
+-
 
 🚀 E-Commerce Platform
 

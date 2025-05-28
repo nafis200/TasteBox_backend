@@ -26,6 +26,16 @@ const getAllMeal = catchAsync(async (req, res) => {
       data: result,
     });
   });
+const SinglemealController = catchAsync(async (req, res) => {
+    const {mealid} = req.params
+    const result = await MealServices.SingleMeal(mealid);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Blog data Get successfully',
+      data: result,
+    });
+  });
 
   const UpdateMeal = catchAsync(async (req, res) => {
     const { projectId } = req.params;
@@ -53,5 +63,6 @@ const getAllMeal = catchAsync(async (req, res) => {
 export const MealController = {
     createMeal,
     getAllMeal,
-    UpdateMeal
+    UpdateMeal,
+    SinglemealController
 }

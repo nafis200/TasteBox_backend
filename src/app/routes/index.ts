@@ -3,6 +3,7 @@ import { UserRoutes } from '../modules/user/user-route';
 import { MealRoutes } from '../modules/meal/meal-route';
 import { CustomerMealRoutes } from '../modules/Customer_meals/customer-route';
 import { OrderRoutes } from '../modules/order/order.route';
+import { CuponRoutes } from '../modules/Cupon_graph/cupon_route';
 
 
 const router = Router();
@@ -27,6 +28,10 @@ const moduleRoutes = [
   {
     path: '/payment',
     route: OrderRoutes
+  },
+  {
+    path: '/cupon',
+    route: CuponRoutes
   },
 
 ];

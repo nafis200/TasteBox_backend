@@ -2,7 +2,7 @@ import QueryBuilder from "../../builder/QueryBuilder";
 import { searchableFields } from "./meal-constant";
 import type { IMeal } from "./meal-interface";
 import mealModel from "./meal-model";
-
+import { ObjectId } from 'mongodb';
 
 const createMeal = async(payload:IMeal)=>{
      if(!payload){
@@ -28,6 +28,21 @@ const getAllMeal = async (query: Record<string, unknown>) => {
         result
     };
   };
+
+  const SingleMeal = async(carId:string)=>{
+  
+    
+    const result = await mealModel.aggregate([
+       {
+        $match: { _id: new ObjectId(carId) }
+       }
+    ])  
+    return result
+}
+
+  
+  
+
 
   const UpdateMeal = async (
     projectId: string,
@@ -68,5 +83,6 @@ const getAllMeal = async (query: Record<string, unknown>) => {
 export const MealServices = {
     createMeal,
     getAllMeal,
-    UpdateMeal
+    UpdateMeal,
+    SingleMeal
 }
