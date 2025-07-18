@@ -1,51 +1,106 @@
-# Meal shop
+# 🍱 TasteBox Backend
+## 🚀 Project Overview
+TasteBox backend is a Node.js + Express.js API server supporting a personalized meal planning and delivery platform. It provides role-based authentication, product & order management, secure payment integration, and robust API endpoints to serve the frontend.
+
+# LIve Link URL
 
 - [@Live-Link](https://meal-shop-frontend.vercel.app/)
 
--
+# 🔑 Key Features
+      Role-based authentication: JWT access & refresh tokens, bcrypt password hashing
 
-🚀 E-Commerce Platform
+      User & Admin dashboards: CRUD operations on users, products, and orders
 
-- A role-based authentication e-commerce platform with user and admin - - dashboards, product management, and secure checkout.
+      Secure Payment Integration: ShurjoPay sandbox gateway support
 
-📌 Features
-🔐 User Registration & Authentication
+      Robust API: Pagination, filtering, validation, error handling, and middleware protection
 
-- Secure user registration with role-based access (user/admin).
-- Password hashing and JWT-based authentication.
-- Login/logout functionality with session management.
-  🌍 Public Routes
+      Environment-aware configuration: Separate dev/prod modes via environment variables
 
-- Home Page: Navbar, banner, featured products, extra section, and footer.
-- All Products Page: Search, filters, and dynamic product listing.
-- Product Details Page: Detailed product view with a "Buy Now" button.
-- About Page: Information about the platform.
-  🔒 Private Routes
+# ⚡ Tech Stack
 
-- Checkout Page: Order placement with stock validation and secure payment.
-  Dashboard:
-- Admin: User, product, and order management (CRUD operations).
-- User: Order history, profile management, and password update.
-  💳 Payment Integration
+# Frontend: 
 
-- Integrated SurjoPay (or similar gateway) for seamless payments.
-  📦 Product & Order Management
+- React.js, 
+- Redux, 
+- Ant Design,
+- Sonner (for notifications).
 
-- Admin can add, edit, delete, and manage product inventory.
-- Users can place orders, and stock is updated accordingly.
-  ⚡ Tech Stack
-
-- Frontend: React.js, Redux, Ant Design, Sonner (for notifications).
-- Backend: Node.js, Express.js, MongoDB, Mongoose.
+# Backend: 
+- Node.js, 
+- Express.js, 
+- MongoDB, 
+- Mongoose.
 - Authentication: JWT for secure user sessions.
-  📱 Responsive UI/UX
 
-- Fully responsive and optimized for all devices.
-  🔄 Error Handling & Loading States
+# Folder sturcture
 
-- Friendly error messages for login, registration, and order issues.
-- Spinners and toasts for better user experience.
-  🔗 API Features
+<details>
+  <summary>📁 Click to expand the project folder structure</summary>
 
-- Pagination for product and order listings.
-- Authentication middleware to secure private routes.
+```bash
+src/
+├── app.ts                 # Express app setup and middleware
+├── server.ts              # Server bootstrap and listen
+├── app/
+│   ├── builder/           # Helpers for building requests/responses
+│   ├── config/            # Configuration files (env, constants)
+│   ├── errors/            # Custom error classes & handlers
+│   ├── interface/         # TypeScript interfaces & types
+│   ├── middleware/        # Express middleware (auth, validation, etc.)
+│   ├── modules/           # Feature modules (user, product, order, payment)
+│   ├── routes/            # Express route definitions
+│   └── utils/             # Utility functions/helpers
+├── .env                   # Environment variables (not committed)
+├── .gitignore             # Git ignore rules
+├── package.json           # NPM dependencies and scripts
+</details> ```
+
+
+# Project Setup
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory with the following content:
+
+```env
+NODE_ENV=development
+PORT=5000
+
+DATABASE_URL=
+
+BCRYPT_SALT_ROUNDS=
+
+JWT_ACCESS_SECRET=d76563dd6c7a0a4246beabb6875e8cbc31beaf9fb447dcdb0183ea82da994e
+JWT_REFRESH_SECRET=d5b7ef6638570aa71f037d3b79e778f5714a70bafd68ec22f9d25ed89de018a41575159680944e3e582241172289f8633b54c2a7a28b48d9ddcd097e0406a78e
+JWT_ACCESS_EXPIRES_IN=1d
+JWT_REFRESH_EXPIRES_IN=365d
+
+SP_ENDPOINT=https://sandbox.shurjopayment.com
+SP_USERNAME=
+SP_PASSWORD=
+SP_PREFIX=SP
+SP_RETURN_URL=http://localhost:3000/
+
+
+
+
+
+## 🛠 Installation & Setup
+1. Clone the repo
+ 
+git clone https://github.com/nafis200/TasteBox_backend
+cd TasteBox_backend
+
+2. Install dependencies
+npm install
+
+3. Create .env file
+
+4.  Run in development mode
+This will start the server with auto-reloading on file changes:
+
+npm run start:dev
+
+
+
