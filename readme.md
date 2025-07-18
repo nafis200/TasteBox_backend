@@ -2,43 +2,44 @@
 ## 🚀 Project Overview
 TasteBox backend is a Node.js + Express.js API server supporting a personalized meal planning and delivery platform. It provides role-based authentication, product & order management, secure payment integration, and robust API endpoints to serve the frontend.
 
-# LIve Link URL
+# Live Link URL
 
-- [@Live-Link](https://meal-shop-frontend.vercel.app/)
+- [LiveDemo](https://meal-shop-frontend.vercel.app/)
 
-# 🔑 Key Features
-      Role-based authentication: JWT access & refresh tokens, bcrypt password hashing
+## 🔑 Key Features
+  -    Role-based authentication: JWT access & refresh tokens, bcrypt password hashing
 
-      User & Admin dashboards: CRUD operations on users, products, and orders
+  -    User & Admin dashboards: CRUD operations on users, products, and orders
 
-      Secure Payment Integration: ShurjoPay sandbox gateway support
+  -    Secure Payment Integration: ShurjoPay sandbox gateway support
 
-      Robust API: Pagination, filtering, validation, error handling, and middleware protection
+  -    Robust API: Pagination, filtering, validation, error handling, and middleware protection
 
-      Environment-aware configuration: Separate dev/prod modes via environment variables
+  -    Environment-aware configuration: Separate dev/prod modes via environment variables
 
 # ⚡ Tech Stack
 
 # Frontend: 
 
-- React.js, 
-- Redux, 
-- Ant Design,
-- Sonner (for notifications).
+- **React.js** 
+- **Redux** 
+- **Ant Design**
+- **Sonner (for notifications)**.
 
 # Backend: 
-- Node.js, 
-- Express.js, 
-- MongoDB, 
-- Mongoose.
-- Authentication: JWT for secure user sessions.
+- **Node.js**, 
+- **Express.js**, 
+- **MongoDB**, 
+- **Mongoose**.
+- **bcrypt** for password hashing
+- **Nodemailer** for email notifications
+- **Authentication**: JWT for secure user sessions.
 
 # Folder sturcture
 
-<details>
-  <summary>📁 Click to expand the project folder structure</summary>
 
-```bash
+
+```
 src/
 ├── app.ts                 # Express app setup and middleware
 ├── server.ts              # Server bootstrap and listen
@@ -54,16 +55,20 @@ src/
 ├── .env                   # Environment variables (not committed)
 ├── .gitignore             # Git ignore rules
 ├── package.json           # NPM dependencies and scripts
-</details> ```
+
+ ```
 
 
 # Project Setup
 
 ## ⚙️ Environment Variables
 
+
+
 Create a `.env` file in the root directory with the following content:
 
-```env
+```bash
+
 NODE_ENV=development
 PORT=5000
 
@@ -82,25 +87,31 @@ SP_PASSWORD=
 SP_PREFIX=SP
 SP_RETURN_URL=http://localhost:3000/
 
-
+```
 
 
 
 ## 🛠 Installation & Setup
 1. Clone the repo
- 
+
+```bash 
 git clone https://github.com/nafis200/TasteBox_backend
 cd TasteBox_backend
+```
 
+```bash
 2. Install dependencies
 npm install
+```
 
+```bash
 3. Create .env file
 
+```
 4.  Run in development mode
 This will start the server with auto-reloading on file changes:
-
+```bash
 npm run start:dev
-
+```
 
 
